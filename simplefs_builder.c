@@ -85,11 +85,19 @@ int main(int argc, char *argv[])
     memset(&dot, 0, sizeof(dot));
     /* TODO: STUDENT CODE START */
 
+    dot.inode_no = ROOT_INODE;
+    dot.type = TYPE_DIRECTORY;
+    strcpy(dot.name, ".");
+
     /* TODO: STUDENT CODE END */
 
     /* TODO 6: Initialize the '..' entry. */
     memset(&dotdot, 0, sizeof(dotdot));
     /* TODO: STUDENT CODE START */
+
+    dotdot.inode_no = ROOT_INODE;
+    dotdot.type = TYPE_DIRECTORY;
+    strcpy(dotdot.name, "..");
 
     /* TODO: STUDENT CODE END */
 
