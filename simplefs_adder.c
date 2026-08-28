@@ -91,6 +91,10 @@ int main(int argc, char *argv[])
     fseek(source, 0, SEEK_END); file_size = ftell(source); rewind(source);
     if (file_size < 0) { printf("Error: could not determine source file size.\n"); fclose(source); fclose(image); return 1; }
     if (file_size > MAX_FILE_SIZE) { printf("Error: file is too large for SimpleFS.\n"); fclose(source); fclose(image); return 1; }
+    if (strlen(source_name) > 58) {
+        printf("Error: file name is too long for SimpleFS.\n");
+        fclose(source); fclose(image); return 1;
+    }
 
     /* TODO 5: Calculate required_blocks. Zero-byte file uses zero blocks. */
     /* TODO: STUDENT CODE START */
